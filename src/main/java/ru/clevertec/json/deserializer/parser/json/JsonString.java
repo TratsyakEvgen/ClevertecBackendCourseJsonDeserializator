@@ -9,5 +9,4 @@ public class JsonString extends Json<String> {
     public JsonString(String value) {
         super(value);
     }
-
 }

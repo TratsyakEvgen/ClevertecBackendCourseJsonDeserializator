@@ -3,7 +3,6 @@ package ru.clevertec.json.deserializer;
 import ru.clevertec.json.deserializer.parser.json.Json;
 
 public abstract class AbstractDeserializer<J extends Json<?>> implements Deserializer {
-
     private final Class<J> genericClass;
 
     protected AbstractDeserializer(Class<J> genericClass) {

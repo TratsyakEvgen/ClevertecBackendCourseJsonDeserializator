@@ -26,14 +26,10 @@ public class FieldScannerImpl implements FieldScanner {
 
     }
 
-
     private String getJsonName(Field field) {
         return Optional.ofNullable(field.getAnnotation(JsonField.class))
-                .stream()
                 .map(JsonField::name)
-                .findFirst()
                 .orElseGet(field::getName);
 
     }
-
 }

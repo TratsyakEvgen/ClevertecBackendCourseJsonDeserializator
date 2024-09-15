@@ -10,7 +10,6 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 public class DeserializerFactoryImpl implements DeserializerFactory {
-
     private final static Map<Class<?>, Supplier<Deserializer>> JSON_SUPPLIER_MAP;
 
     static {
@@ -22,9 +21,12 @@ public class DeserializerFactoryImpl implements DeserializerFactory {
         JSON_SUPPLIER_MAP.put(JsonString.class, JsonStringDeserializer::new);
     }
 
-
     @Override
     public Deserializer get(Json<?> json) {
-        return Optional.ofNullable(JSON_SUPPLIER_MAP.get(json.getClass())).orElseGet(() -> JsonObjectDeserializer::new).get();
+        return Optional.ofNullable(json)
+                .map(Json::getClass)
+                .map(JSON_SUPPLIER_MAP::get)
+                .map(Supplier::get)
+                .orElseGet(JsonObjectDeserializer::new);
     }
 }

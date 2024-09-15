@@ -6,8 +6,8 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = false)
 @ToString
 public class JsonNull extends Json<Object> {
+
     public JsonNull() {
         super(null);
     }
-
 }

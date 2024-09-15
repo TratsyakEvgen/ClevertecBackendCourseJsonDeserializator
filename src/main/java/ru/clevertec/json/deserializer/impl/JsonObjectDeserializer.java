@@ -17,7 +17,6 @@ import java.util.Optional;
 
 public class JsonObjectDeserializer extends AbstractDeserializer<JsonObject> {
     private final FieldScanner fieldScanner;
-
     private final DeserializerFactory deserializerFactory;
     private final FieldSetter fieldSetter;
 
@@ -31,7 +30,6 @@ public class JsonObjectDeserializer extends AbstractDeserializer<JsonObject> {
         this.deserializerFactory = deserializerFactory;
         this.fieldSetter = fieldSetter;
     }
-
 
     @Override
     @SuppressWarnings("unchecked")
@@ -48,11 +46,7 @@ public class JsonObjectDeserializer extends AbstractDeserializer<JsonObject> {
                                     String.format("Not found field with name %s in class %s", name, targetClass)
                             )
                     );
-
-
             Object value = deserializerFactory.get(json).deserialize(json, field.getType());
-
-
             fieldSetter.set(object, field, value);
         });
 
@@ -68,6 +62,4 @@ public class JsonObjectDeserializer extends AbstractDeserializer<JsonObject> {
             throw new DeserializerException("Cannot create object " + targetClass);
         }
     }
-
-
 }

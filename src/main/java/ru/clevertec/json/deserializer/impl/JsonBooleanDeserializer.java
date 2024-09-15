@@ -6,7 +6,6 @@ import ru.clevertec.json.deserializer.parser.json.JsonBoolean;
 
 public class JsonBooleanDeserializer extends AbstractDeserializer<JsonBoolean> {
 
-
     public JsonBooleanDeserializer() {
         super(JsonBoolean.class);
     }

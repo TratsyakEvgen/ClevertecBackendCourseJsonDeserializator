@@ -8,7 +8,6 @@ import ru.clevertec.json.deserializer.DeserializerException;
 import ru.clevertec.json.deserializer.parser.json.JsonNumber;
 
 public class JsonNumberDeserializer extends AbstractDeserializer<JsonNumber> {
-
     private final NumberConverter numberConverter;
 
     public JsonNumberDeserializer() {
@@ -19,7 +18,6 @@ public class JsonNumberDeserializer extends AbstractDeserializer<JsonNumber> {
         super(JsonNumber.class);
         this.numberConverter = numberConverter;
     }
-
 
     @Override
     protected <T> T deserializeJson(JsonNumber json, Class<T> targetClass) {

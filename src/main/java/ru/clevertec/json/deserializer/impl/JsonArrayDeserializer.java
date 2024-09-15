@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public class JsonArrayDeserializer extends AbstractDeserializer<JsonArray> {
-
     private final static Map<Class<?>, ArraySetter> CLASS_ARRAY_SETTER_MAP;
 
     static {
@@ -41,7 +40,6 @@ public class JsonArrayDeserializer extends AbstractDeserializer<JsonArray> {
     @Override
     @SuppressWarnings("unchecked")
     protected <T> T deserializeJson(JsonArray json, Class<T> targetClass) {
-
         validate(targetClass);
 
         Json<?>[] jsons = json.getValue();
@@ -59,7 +57,6 @@ public class JsonArrayDeserializer extends AbstractDeserializer<JsonArray> {
             throw new DeserializerException(String.format("Class %s isn't array", targetClass));
         }
     }
-
 
     private void setValueInArray(Class<?> component, Json<?>[] jsons, Object objects) {
         ArraySetter arraySetter = getArraySetter(component);
@@ -80,6 +77,4 @@ public class JsonArrayDeserializer extends AbstractDeserializer<JsonArray> {
     private interface ArraySetter {
         void set(Object object, int index, Object value);
     }
-
-
 }

@@ -10,7 +10,5 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Json<T> {
-
     protected T value;
-
 }

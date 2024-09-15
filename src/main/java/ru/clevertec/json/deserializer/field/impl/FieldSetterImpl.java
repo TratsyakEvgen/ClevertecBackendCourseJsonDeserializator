@@ -9,7 +9,6 @@ public class FieldSetterImpl implements FieldSetter {
 
     @Override
     public void set(Object object, Field field, Object value) {
-
         validate(object, field);
 
         field.setAccessible(true);
@@ -25,13 +24,11 @@ public class FieldSetterImpl implements FieldSetter {
     }
 
     private void validate(Object object, Field field) {
-
         if (object == null) {
             throw new FieldSetterException("Object mustn't be null");
         }
         if (field == null) {
             throw new FieldSetterException("Field mustn't be null");
         }
-
     }
 }

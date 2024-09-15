@@ -6,7 +6,6 @@ import ru.clevertec.json.deserializer.parser.json.JsonString;
 
 public class JsonStringDeserializer extends AbstractDeserializer<JsonString> {
 
-
     public JsonStringDeserializer() {
         super(JsonString.class);
     }
